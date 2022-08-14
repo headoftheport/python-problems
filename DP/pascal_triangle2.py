@@ -30,3 +30,17 @@ class Solution:
                     temp.append(array[i-1] + array[i])
             array = temp
         return array
+
+
+    def get_row3(self, row_index):
+        """linear solution"""
+        nCk = 1
+        array = list()
+        for i in range(row_index+1):
+            array.append((int(nCk)))
+            nCk = nCk * (row_index - i) / (i+1)
+
+        return array
+
+
+print(Solution().get_row3(4))
