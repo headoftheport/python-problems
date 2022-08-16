@@ -1,5 +1,9 @@
+"""using modified floyd-warshall algorithm"""
+from collections import defaultdict
+import itertools
 class Solution(object):
-    def calcEquation(self, equations, values, queries):
+    """solution"""
+    def calc_equation(self, equations, values, queries):
         """
         :type equations: List[List[str]]
         :type values: List[float]
