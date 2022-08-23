@@ -1,7 +1,10 @@
+"""find and replace"""
 class Solution:
-    def findAndReplacePattern(self, words, pattern: str):
-        
-        
+    """solution"""
+    def find_and_replace_pattern(self, words, pattern: str):
+        """iterative"""
+        #time complexity: O( number of words * number of chars in pattern) = O( total number of chars in words array)
+        #space complexity: O(size of pattern)
         ret = list()
         for word in words:
             store = dict()
@@ -14,7 +17,8 @@ class Solution:
                     break
                 if j in store2 and store2[j] != i:
                     found = False
-                    
+                    break
+
                 store[i] = j
                 store2[j] = i
                 
@@ -25,8 +29,8 @@ class Solution:
         return ret
 
 
-    def findAndReplacePattern2(self, words: List[str], pattern: str) -> List[str]:
-        
+    def find_and_replace_pattern_2(self, words, pattern: str):
+            """iterative with encoding and less space"""
             def encode(string):
                 val = 0
                 store = {}
