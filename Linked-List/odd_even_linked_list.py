@@ -20,6 +20,30 @@ def odd_even_linked_list(head:ListNode) -> ListNode:
     odd_node.next = even_head
     return head
 
+def odd_even_linked_list2(self, head):
+        """another linear solution """
+        if head is None:
+            return head;
+        
+        even = ListNode()
+        odd = ListNode()
+        odd_head = odd
+        even_head = even
+        is_odd = True
+        
+        while head:
+            if is_odd:
+                odd.next = head
+                odd = odd.next
+            else:
+                even.next = head
+                even = even.next
+            is_odd = not is_odd
+            head = head.next
+        even.next = None   
+        odd.next = even_head.next
+        return odd_head.next
+
 if __name__ == "__main__":
 
     linkedlist = LinkedList()
