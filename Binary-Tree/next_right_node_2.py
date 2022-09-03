@@ -53,6 +53,55 @@ class Solution:
             dummy.next = None
             
         return root
+
+    
+    def connect3(self, root):
+        """iterative without dummy node"""
+        node = root
+        
+        while node and node.left:
+            temp = node
+            start = temp.left
+            while temp:
+                
+                if start == temp.left:
+                    start.next = temp.right
+                    start = start.next
+                elif start == temp.right:
+                    temp = temp.next
+                else:
+                    start.next = temp.left
+                    start = start.next
+                    
+            node = node.left
+            
+        return root
+
+
+    def connect4(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        """recursive solution"""
+        if root and root.left and root.right:
+            root.left.next = root.right
+            if root.next:
+                root.right.next = root.next.left
+            self.connect(root.left)
+            self.connect(root.right)
+            
+        return root
+
+    def connect5(self, root):
+        """iterative"""
+        curr = root
+        while curr and curr.left:
+            temp = curr
+            while temp:
+                temp.left.next = temp.right
+                if temp.next:
+                    temp.right.next = temp.next.left
+                temp = temp.next   
+            curr = curr.left
+            
+        return root
     
     
 
