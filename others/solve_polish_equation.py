@@ -1,7 +1,7 @@
 """solve polish equation"""
 class Solution:
     """solution"""
-     def __init__(self):
+    def __init__(self):
         self.back = 0
         
     def evalRPN(self, tokens: List[str]) -> int:
