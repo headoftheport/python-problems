@@ -31,3 +31,26 @@ class Solution:
 
         return True
 
+
+    def isValidSudoku2(self, board) -> bool:
+        
+        store = set()
+
+        for i in range(0,9):
+            for j in range(0,9):
+                
+                curr = board[i][j]
+                
+                if curr == '.':
+                    continue
+                
+                if (i,curr) in store or (curr,j) in store or (i//3, j//3 ,curr) in store:
+                    return False
+                
+                store.add((i,curr))
+                store.add((curr, j))
+                store.add((i//3, j//3 , curr))
+                
+                
+        return True
+
